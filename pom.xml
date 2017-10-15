@@ -1,87 +1,99 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
-		<modelVersion>1.0.0</modelVersion>
-			<groupId>com.main</groupId>
-				<version>1.1</version>
-					<artifactId>SwaggerGrizzlyJersey</artifactId>
-						<name>SwaggerGrizzlyJersey</name>
-							<packaging>jar</packaging>
+	<modelVersion>1.0.0</modelVersion>
+	<groupId>com.main</groupId>
+	<version>1.1</version>
+	<artifactId>GrizzlyJerseySecureHttpServer</artifactId>
+	<name>GrizzlyJerseySecureHttpServer</name>
+	<packaging>jar</packaging>
 
-								<description>Generate Swagger UI through Grizzly Jersey</description>
+	<description>Implement Secure Http Server through Grizzly Jersey</description>
 
 
-									<properties>
-											<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-													<jersey.version>2.22.2</jersey.version>
-															<junit.version>4.11</junit.version>
-																	<swagger-jersey2-jaxrs.version>1.5.9</swagger-jersey2-jaxrs.version>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<jersey.version>2.22.2</jersey.version>
+		<junit.version>4.11</junit.version>
+		<swagger-jersey2-jaxrs.version>1.5.9</swagger-jersey2-jaxrs.version>
 
-																			<maven.compiler.target>1.7</maven.compiler.target>
-																					<maven.compiler.source>1.7</maven.compiler.source>
-																							<maven.compiler.testTarget>1.7</maven.compiler.testTarget>
-																									<maven.compiler.testSource>1.7</maven.compiler.testSource>
-																										</properties>
+		<maven.compiler.target>1.7</maven.compiler.target>
+		<maven.compiler.source>1.7</maven.compiler.source>
+		<maven.compiler.testTarget>1.7</maven.compiler.testTarget>
+		<maven.compiler.testSource>1.7</maven.compiler.testSource>
+	</properties>
 
-																											<dependencies>
+	<dependencies>
+		<!-- https://mvnrepository.com/artifact/commons-logging/commons-logging -->
+		<dependency>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+			<version>1.1.1</version>
+		</dependency>
 
-																													<dependency>
-																																<groupId>org.glassfish.jersey.containers</groupId>
-																																			<artifactId>jersey-container-grizzly2-servlet</artifactId>
-																																						<version>${jersey.version}</version>
-																																								</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.17</version>
+		</dependency>
 
-																																										<dependency>
-																																													<groupId>org.glassfish.jersey.media</groupId>
-																																																<artifactId>jersey-media-json-jackson</artifactId>
-																																																			<version>${jersey.version}</version>
-																																																					</dependency>
+		<dependency>
+			<groupId>org.glassfish.jersey.containers</groupId>
+			<artifactId>jersey-container-grizzly2-servlet</artifactId>
+			<version>${jersey.version}</version>
+		</dependency>
 
-																																																							<dependency>
-																																																										<groupId>junit</groupId>
-																																																													<artifactId>junit</artifactId>
-																																																																<version>${junit.version}</version>
-																																																																			<scope>test</scope>
-																																																																					</dependency>
+		<dependency>
+			<groupId>org.glassfish.jersey.media</groupId>
+			<artifactId>jersey-media-json-jackson</artifactId>
+			<version>${jersey.version}</version>
+		</dependency>
 
-																																																																							<dependency>
-																																																																										<groupId>javax.ws.rs</groupId>
-																																																																													<artifactId>javax.ws.rs-api</artifactId>
-																																																																																<version>2.0</version>
-																																																																																		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+			<scope>test</scope>
+		</dependency>
 
-																																																																																				<dependency>
-																																																																																							<groupId>io.swagger</groupId>
-																																																																																										<artifactId>swagger-jersey2-jaxrs</artifactId>
-																																																																																													<version>${swagger-jersey2-jaxrs.version}</version>
-																																																																																															</dependency>
+		<dependency>
+			<groupId>javax.ws.rs</groupId>
+			<artifactId>javax.ws.rs-api</artifactId>
+			<version>2.0</version>
+		</dependency>
 
-																																																																																																</dependencies>
+		<dependency>
+			<groupId>io.swagger</groupId>
+			<artifactId>swagger-jersey2-jaxrs</artifactId>
+			<version>${swagger-jersey2-jaxrs.version}</version>
+		</dependency>
 
-																																																																																																	<build>
-																																																																																																			<plugins>
-																																																																																																						<plugin>
-																																																																																																										<groupId>org.codehaus.mojo</groupId>
-																																																																																																														<artifactId>exec-maven-plugin</artifactId>
-																																																																																																																		<version>1.2.1</version>
-																																																																																																																						<configuration>
-																																																																																																																											<mainClass>com.main.MainApp</mainClass>
-																																																																																																																															</configuration>
-																																																																																																																																		</plugin>
-																																																																																																																																				</plugins>
-																																																																																																																																					</build>
+	</dependencies>
 
-																																																																																																																																						<profiles>
-																																																																																																																																								<profile>
-																																																																																																																																											<id>release</id>
-																																																																																																																																														<build>
-																																																																																																																																																		<plugins>
-																																																																																																																																																							<plugin>
-																																																																																																																																																													<groupId>org.apache.maven.plugins</groupId>
-																																																																																																																																																																			<artifactId>maven-assembly-plugin</artifactId>
-																																																																																																																																																																								</plugin>
-																																																																																																																																																																												</plugins>
-																																																																																																																																																																															</build>
-																																																																																																																																																																																	</profile>
-																																																																																																																																																																																		</profiles>
-																																																																																																																																																																																		</project>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<version>1.2.1</version>
+				<configuration>
+					<mainClass>com.main.MainApp</mainClass>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<profiles>
+		<profile>
+			<id>release</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-assembly-plugin</artifactId>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+</project>
