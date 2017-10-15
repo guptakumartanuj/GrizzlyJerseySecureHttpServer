@@ -7,6 +7,9 @@ import javax.ws.rs.container.ContainerResponseContext;
 import javax.ws.rs.container.ContainerResponseFilter;
 import javax.ws.rs.ext.Provider;
 
+/**
+ * Created by Tanuj .
+ */
 @Provider
 public class CrossDomainFilter implements ContainerResponseFilter {
 
