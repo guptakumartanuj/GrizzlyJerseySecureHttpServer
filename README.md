@@ -12,3 +12,13 @@ keytool -export -alias serverKey -rfc -keystore ./keystore_server > ./server.cer
 keytool -import -alias serverCert -file ./server.cert -keystore ./truststore_client
 
 In this, I have given the provision to read the port from Environment variable and properties file as well in case not found in env variable.
+
+
+## Copyright 
+
+Copyright (c) 2018 Tanuj Gupta
+
+---
+
+> GitHub [@guptakumartanuj](https://github.com/guptakumartanuj) &nbsp;&middot;&nbsp;
+> [Blog](https://guptakumartanuj.wordpress.com/) &nbsp;&middot;&nbsp;
